@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Tech Survey Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <header>
+        <div class="header-glow"></div>
+        <h1>STUDENT TECH SURVEY</h1>
+        <p class="header-sub"> DASHBOARD v1.0</p>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <div class="section-label">[ INPUT MODULE ]</div>
+            <form id="surveyForm">
+
+                <div class="input-group">
+                    <label>IDENTIFIER</label>
+                    <input type="text" id="nameInput" placeholder="Enter your name" autocomplete="off">
+                </div>
+
+                <div class="input-group">
+                    <label>BRANCH</label>
+                    <select name="branch" id="branchInput">
+                        <option value="" selected disabled>— Select Branch —</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="IT">Information Technology</option>
+                        <option value="AIDS">AI &amp; Data Science</option>
+                        <option value="CSBS">CS &amp; Business Systems</option>
+                        <option value="EXTC">Electronics &amp; TC</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>PREFERRED DOMAIN</label>
+                    <div class="radio-grid">
+                        <label class="radio-card">
+                            <input type="radio" name="domain" value="AI/ML">
+                            <span>AI / ML</span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="domain" value="Web Dev">
+                            <span>Web Dev</span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="domain" value="Cybersecurity">
+                            <span>Cybersecurity</span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="domain" value="Data Science">
+                            <span>Data Science</span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="domain" value="App Dev">
+                            <span>App Dev</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>FAVOURITE LANGUAGE</label>
+                    <select name="language" id="languageInput">
+                        <option value="" selected disabled>— Select Language —</option>
+                        <option value="C++">C++</option>
+                        <option value="Java">Java</option>
+                        <option value="Python">Python</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>DAILY STUDY HOURS</label>
+                    <input type="number" id="hoursInput" placeholder="e.g. 4" min="0" max="24">
+                </div>
+
+                <button type="submit" id="submitBtn">
+                    <span class="btn-text">SUBMIT RESPONSE</span>
+                    <span class="btn-glow"></span>
+                </button>
+
+                <div id="formMsg" class="form-msg"></div>
+
+            </form>
+        </section>
+
+        <section id="dashboard">
+            <div class="section-label">[ LIVE INSIGHTS ]</div>
+
+            <div class="stats-grid">
+                <div class="stat-card" id="cardTotal">
+                    <div class="stat-icon">◈</div>
+                    <div class="stat-value" id="totalResponses">0</div>
+                    <div class="stat-label">Total Responses</div>
+                    <div class="card-line"></div>
+                </div>
+                <div class="stat-card" id="cardDomain">
+                    <div class="stat-icon">◉</div>
+                    <div class="stat-value small" id="popularDomain">—</div>
+                    <div class="stat-label">Top Domain</div>
+                    <div class="card-line"></div>
+                </div>
+                <div class="stat-card" id="cardHours">
+                    <div class="stat-icon">◆</div>
+                    <div class="stat-value" id="averageHours">0</div>
+                    <div class="stat-label">Avg Study Hours</div>
+                    <div class="card-line"></div>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <div class="chart-box">
+                    <div class="chart-title">Domain Distribution</div>
+                    <canvas id="domainChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <div class="chart-title">Languages Used</div>
+                    <canvas id="langChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
